@@ -1,4 +1,4 @@
-import { SET_BOOKS } from "../actions/actionType";
+import { SET_AUTHORS } from "../actions/actionTypes";
 
 const initialState = {
     authors: [],
@@ -7,11 +7,11 @@ const initialState = {
   
   const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case SET_BOOKS:
-        const books = action.payload;
+      case SET_AUTHORS:
+        const authors = action.payload;
         return {
           ...state,
-          books,
+          authors,
           loading: false
         };
       default:

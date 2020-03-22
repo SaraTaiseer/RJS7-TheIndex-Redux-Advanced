@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import AuthorCard from "./AuthorCard";
 import SearchBar from "./SearchBar";
 
+import {connect} from "react-redux";
 class AuthorsList extends Component {
   state = {
     query: ""
@@ -34,5 +35,9 @@ class AuthorsList extends Component {
     );
   }
 }
-
-export default AuthorsList;
+const mapStateToProps = state => {
+  return{
+    authors:state.authorsState.authors
+  };
+};
+export default connect(mapStateToProps)(AuthorsList);

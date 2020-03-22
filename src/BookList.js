@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // Components
 import SearchBar from "./SearchBar";
 import BookTable from "./BookTable";
-
+import {connect} from "react-redux";
 class BookList extends Component {
   state = {
     query: ""
@@ -35,5 +35,9 @@ class BookList extends Component {
     );
   }
 }
-
-export default BookList;
+const mapStateToProps = state => {
+  return{
+    books:state.booksState.books
+  };
+};
+export default connect(mapStateToProps)(BookList);
